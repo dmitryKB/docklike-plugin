@@ -27,6 +27,7 @@ namespace Hotkeys
 
 		switch (xevent->type)
 		{
+/*
 		case ModifierChange:
 			if (GDK_MOD4_MASK & xevent->xkey.keycode)
 			{
@@ -37,6 +38,7 @@ namespace Hotkeys
 				Dock::hoverSupered(false);
 			}
 			break;
+*/
 		case KeyPress:
 			if (xevent->xkey.keycode >= m1Keycode && xevent->xkey.keycode <= m1Keycode + NbHotkeys)
 			{
