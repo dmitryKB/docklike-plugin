@@ -16,6 +16,8 @@ GroupWindow::GroupWindow(WnckWindow* wnckWindow)
 
 	mGroup = Dock::prepareGroup(appInfo);
 
+	//--------------------------------------------------
+
 	/*std::cout << "SEARCHING GROUPNAME:" << groupName << std::endl;
 	if (appInfo == NULL)
 		std::cout << "NO MATCH:" << 0 << std::endl;
@@ -109,7 +111,8 @@ void GroupWindow::onActivate()
 	Help::Gtk::cssClassAdd(GTK_WIDGET(mGroupMenuItem->mItem), "active");
 	gtk_widget_queue_draw(GTK_WIDGET(mGroupMenuItem->mItem));
 
-	mGroup->onWindowActivate(this);
+	if(mGroupAssociated)
+		mGroup->onWindowActivate(this);
 }
 
 void GroupWindow::onUnactivate()
@@ -117,7 +120,8 @@ void GroupWindow::onUnactivate()
 	Help::Gtk::cssClassRemove(GTK_WIDGET(mGroupMenuItem->mItem), "active");
 	gtk_widget_queue_draw(GTK_WIDGET(mGroupMenuItem->mItem));
 
-	mGroup->onWindowUnactivate();
+	if(mGroupAssociated)
+		mGroup->onWindowUnactivate();
 }
 
 bool GroupWindow::getState(WnckWindowState flagMask)

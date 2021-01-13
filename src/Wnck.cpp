@@ -233,7 +233,7 @@ namespace Wnck
 					group);
 			}
 
-			if (group != NULL)
+			if (!appInfo->path.empty())
 			{
 				for (int i = 0; appInfo->actions[i]; i++)
 				{
@@ -261,6 +261,7 @@ namespace Wnck
 
 			return menu;
 		}
+		return FALSE;
 	}
 
 	void switchToLastWindow(guint32 timestamp)
