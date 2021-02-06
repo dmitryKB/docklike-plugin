@@ -107,7 +107,7 @@ namespace Wnck
 	{
 		WnckWindow* activeWindow = wnck_screen_get_active_window(mWnckScreen);
 		if (!WNCK_IS_WINDOW(activeWindow))
-			return NULL;
+			return 0;
 
 		return wnck_window_get_xid(activeWindow);
 	}
@@ -148,7 +148,7 @@ namespace Wnck
 	void setActiveWindow()
 	{
 		gulong activeXID = getActiveWindowXID();
-		if (activeXID != NULL)
+		if (activeXID)
 		{
 			mGroupWindows.first()->onUnactivate();
 			mGroupWindows.moveToStart(activeXID)->onActivate();
@@ -259,6 +259,12 @@ namespace Wnck
 				}
 			}
 
+			/* TODO: The editing desktop files thing doesn't totally work. Disabled for now. 
+					 The changes won't appear until the panel is reloaded, 
+					 and exo-desktop-item-edit will create a new desktop file in ~/.local/share/applications
+					 if you're editing something that was in /usr/share/applications (etc.).
+					 This means pinned apps won't get updated and the user needs to relaunch/pin them.
+			
 			GtkWidget* m = gtk_menu_item_new_with_label(_("Edit"));
 			gtk_widget_show(m);
 			gtk_menu_shell_insert(GTK_MENU_SHELL(menu), m, 0);
@@ -268,6 +274,8 @@ namespace Wnck
 					appInfo->edit();
 				}),
 				appInfo);
+			
+			*/
 
 			return menu;
 		}
