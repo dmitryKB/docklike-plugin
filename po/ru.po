@@ -44,10 +44,6 @@ msgstr "Закрепить"
 msgid "Close All"
 msgstr "Закрыть все окна"
 
-#: ../src/Wnck.cpp:262
-msgid "Edit"
-msgstr "Редактировать"
-
 #: ../src/SettingsDialog.cpp:21
 #, c-format
 msgid "<b>Only the first %u hotkeys(s) are enabled.</b>\n"
