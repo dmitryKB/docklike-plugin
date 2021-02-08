@@ -26,7 +26,7 @@ msgstr "Простая и современная панель задач для 
 
 #: ../src/Wnck.cpp:185
 msgid "Launch another"
-msgstr "Новое окно"
+msgstr "Запустить новый экземпляр"
 
 #: ../src/Wnck.cpp:185
 msgid "Launch"
